@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'bootstrap5',
     'blog',
 
     # Third party authentication apps
