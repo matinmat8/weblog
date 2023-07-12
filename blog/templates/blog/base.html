@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}M8{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+  <div class="container-sm">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'blog:index' %}">M8</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="nav navbar-nav">
+            <li><a class="nav-link active" aria-current="page" href="#">Posts</a></li>
+            <li><a class="nav-link" href="#">Filter</a></li>
+            <li><a class="nav-link disabled" href="#">Profile</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <il class="nav-item"><a style="margin-left:5px;" class="nav-link" href="#">Profile</a></il>
+          <il class="nav-item"><a style="margin-left:5px;" class="nav-link" href="{% url 'account_logout' %}">LogOut</a></il>
+        {% else %}
+          <il class="nav-item"><a style="margin-left:5px;" class="nav-link" href="{% url 'account_signup' %}"> SignUp </a></il>
+          <il class="nav-item"><a style="margin-left:5px;" class="nav-link" href="{% url 'account_login' %}">Login</a></il>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <div class="container-fluid">
+      <p style="margin-left: 450px" class="navbar-nav">created by matinmat8</p>
+    </div>
+  </nav>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="container-sm mt-3 alert {{ message.tags }} alert-dismissible shadow fade show" role="alert">
+        {{ message | safe }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <div>
+    <main>
+      {% block main_content %}
+      {% endblock %}
+    </main>
+
+    <footer>
+      {% block footer %}
+      {% endblock %}
+    </footer>
+
+  </div>
+</body>
+</html>
