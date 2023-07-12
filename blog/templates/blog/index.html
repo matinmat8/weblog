@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h4 style="color:#587e76">this is an index page after years.</h4>
-    {% if user.is_authenticated %}
-        <div>Welcome {{ user.username }}</div>
-        <div><a href="{% url 'account_logout' %}">LogOut</a></div>
-    {% else %}
-        <div><a href="{% url 'account_login' %}">Login</a></div>
-        <div>please login</div>
-    {% endif %}
-    <h5><a href="{% url 'account_signup' %}">signup</a></h5>
-</body>
-</html>
+{% extends 'blog/base.html' %}
+{% block main_content %}
+  <div  class="container-sm mt-3">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p>This is my personal blog for my daily journaling of the things that I do in a day
+      and the things that I learn.</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Created by <cite title="Source Title">MatinMat8</cite>
+      </figcaption>
+    </figure>
+  </div>
+{% endblock %}
