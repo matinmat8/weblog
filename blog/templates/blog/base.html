@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="container-sm">
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg" style="border-radius: 0px 0px 15px 15px;">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'blog:index' %}">M8</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="nav navbar-nav">
-            <li><a class="nav-link active" aria-current="page" href="#">Posts</a></li>
+            <li><a class="nav-link active" aria-current="page" href="{% url 'blog:list' %}">Posts</a></li>
             <li><a class="nav-link" href="#">Filter</a></li>
             <li><a class="nav-link disabled" href="#">Profile</a></li>
           </ul>
@@ -34,13 +34,13 @@
       </ul>
     </nav>
   </div>
-
-  <nav class="navbar fixed-bottom navbar-light bg-light">
-    <div class="container-fluid">
-      <p style="margin-left: 450px" class="navbar-nav">created by matinmat8</p>
-    </div>
-  </nav>
-
+  <div class="container-sm">
+    <nav class="navbar fixed-bottom navbar-dark bg-dark navbar-expand-lg" style="border-radius: 15px 15px 0px 0px;">
+      <div class="container-fluid">
+        <p style="margin-left: 478px; color:white;" class="navbar-nav">created by matinmat8</p>
+      </div>
+    </nav>
+  </div>
   {% if messages %}
     {% for message in messages %}
       <div class="container-sm mt-3 alert {{ message.tags }} alert-dismissible shadow fade show" role="alert">

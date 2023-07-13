@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}M8 Posts{% endblock %}
+
+{% block main_content %}
+  <div class="container-sm mt-3">
+    {% for obj in object_list %}
+      <a href="#" style="font-size:large; display:block;">{{ obj.title }}</a>
+      <p style="font-size:small; margin-right: 10px; display:inline; color:gray">published at {{ obj.publish }}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
