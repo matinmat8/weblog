@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block main_content %}
+  <div class="container-sm mt-3">
+    <p style="font-size:large; display:block;">{{ post.title }}</p>
+    <p class="lh-1">{{ post.body }}</p>
+    <p style="font-size:small; margin-right: 10px; display:block; color:gray">Post Views:
+        <strong>{{ post.views_count }}</strong></p>
+    <p style="font-size:small; margin-right: 10px; display:block; color:gray">published at {{ post.publish }}</p>
+  </div>
+{% endblock %}
