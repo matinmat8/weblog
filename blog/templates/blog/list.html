@@ -5,7 +5,7 @@
 {% block main_content %}
   <div class="container-sm mt-3">
     {% for obj in object_list %}
-      <a href="#" style="font-size:large; display:block;">{{ obj.title }}</a>
+      <a class="link-dark" href="{{ obj.get_absolute_url }}" style="font-size:large; display:block;">{{ obj.title }}</a>
       <p style="font-size:small; margin-right: 10px; display:inline; color:gray">published at {{ obj.publish }}</p>
     {% endfor %}
   </div>
