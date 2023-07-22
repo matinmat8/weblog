@@ -9,15 +9,13 @@ from django.utils.decorators import method_decorator
 # Create your views here.
 
 
+@method_decorator(debugging_decorator, name="dispatch")
 class Index(View):
     def get(self, *args, **kwargs):
         return render(self.request, 'blog/index.html')
 
-    @method_decorator(debugging_decorator)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
 
-
+@method_decorator(debugging_decorator, name="dispatch")
 class PostLIst(ListView):
     model = Post
     template_name = 'blog/list.html'
@@ -25,10 +23,6 @@ class PostLIst(ListView):
     def get_queryset(self):
         obj = super().get_queryset()
         return obj.filter().order_by('publish')
-
-    @method_decorator(debugging_decorator)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
 
 
 @debugging_decorator
